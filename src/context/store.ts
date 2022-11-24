@@ -1,13 +1,12 @@
 import logger from 'redux-logger';
 
+import { NODE_ENV } from '@data/config';
 import counterReducer from '@features/counter/counterSlice';
 import {
   combineReducers,
   configureStore,
   PreloadedState,
 } from '@reduxjs/toolkit';
-
-// ...
 
 export const rootReducer = combineReducers({
   counter: counterReducer,
@@ -34,7 +33,7 @@ export function getMiddleware(env: string): any[] {
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(getMiddleware('local')),
+    getDefaultMiddleware().concat(getMiddleware(NODE_ENV)),
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
