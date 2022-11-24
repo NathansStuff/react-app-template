@@ -8,11 +8,10 @@
     "npm": ">=8.19"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "craco start",
+    "build": "craco build",
     "test": "jest test",
     "test-watch": "jest test --watch",
-    "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "prettier": "prettier --write .",
@@ -78,6 +77,7 @@
     "@storybook/testing-library": "^0.0.13",
     "autoprefixer": "^10.4.13",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "craco": "^0.0.3",
     "eslint": "^8.28.0",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-simple-import-sort": "^8.0.0",

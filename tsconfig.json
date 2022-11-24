@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "#assets/*": ["./assets/*"],
-      "#components/*": ["./components/*"]
-      // etc.
+      "@components/*": ["src/components/*"],
+      "@components/templates/*": ["src/components/templates/*"],
+      "@utils/*": ["src/utils/*"],
+      "@styles/*": ["src/styles/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
