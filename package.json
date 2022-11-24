@@ -28,7 +28,9 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "lint": "eslint \"**/*.{ts,tsx}\" --quiet",
+    "lint-fix": "eslint \"**/*.{ts,tsx}\" --quiet --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -73,6 +75,11 @@
     "@storybook/testing-library": "^0.0.13",
     "autoprefixer": "^10.4.13",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint": "^8.28.0",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-storybook": "^0.6.7",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "postcss": "^8.4.19",
     "prettier": "^2.8.0",
     "prop-types": "^15.8.1",

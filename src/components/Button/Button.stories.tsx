@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { Button, EButtonType, IButton } from './Button';
 import { mockButtonProps } from './Button.mocks';
 

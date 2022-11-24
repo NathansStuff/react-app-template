@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+
 import { Button, EButtonType, getButtonTypeClassName } from './Button';
 import { mockButtonProps } from './Button.mocks';
 
