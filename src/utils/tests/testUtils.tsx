@@ -1,7 +1,6 @@
 import { Provider } from 'react-redux';
-import { AppStore, RootState } from 'src/context/store';
+import { AppStore, rootReducer, RootState } from 'src/context/store';
 
-import counterReducer from '@features/counter/counterSlice';
 import { configureStore, PreloadedState } from '@reduxjs/toolkit';
 import {
   render as rtlRender,
@@ -25,9 +24,7 @@ function reducer(
   {
     preloadedState = {},
     store = configureStore({
-      reducer: {
-        counter: counterReducer,
-      },
+      reducer: rootReducer,
       preloadedState,
     }),
     ...renderOptions
