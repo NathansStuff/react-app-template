@@ -2,6 +2,11 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=16.0.0",
+    "yarn": "please use npm",
+    "npm": ">=8.19"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -69,6 +74,7 @@
     "autoprefixer": "^10.4.13",
     "babel-plugin-named-exports-order": "^0.0.2",
     "postcss": "^8.4.19",
+    "prettier": "^2.8.0",
     "prop-types": "^15.8.1",
     "tailwindcss": "^3.2.4",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
