@@ -2,9 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
       "@components/templates/*": ["src/components/templates/*"],
+      "@components/*": ["src/components/*"],
       "@utils/*": ["src/utils/*"],
+      "@features/*": ["src/features/*"],
+      "@data/*": ["src/data/*"],
+      "@context/*": ["src/context/*"],
       "@styles/*": ["src/styles/*"]
     },
     "target": "es5",
