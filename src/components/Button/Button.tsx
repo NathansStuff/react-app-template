@@ -22,7 +22,12 @@ export interface IButton {
  * @date 12-09-2022
  * @version 1
  */
-export function Button({ children, onClick, type = EButtonType.PRIMARY, ...rest }: IButton): JSX.Element {
+export function Button({
+  children,
+  onClick,
+  type = EButtonType.PRIMARY,
+  ...rest
+}: IButton): JSX.Element {
   return (
     <button
       data-testid='button'
