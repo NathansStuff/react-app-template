@@ -4,41 +4,41 @@ import '!style-loader!css-loader!postcss-loader!../src/styles/global.css';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 const customViewports = {
-    vroom: {
-        name: 'VROOM 1.8 Ratio',
-        styles: {
-            width: '400px',
-            height: '720px',
-        },
+  vroom: {
+    name: 'VROOM 1.8 Ratio',
+    styles: {
+      width: '400px',
+      height: '720px',
     },
+  },
 };
 
 export const parameters = {
-    actions: { argTypesRegex: '^on[A-Z].*' },
-    controls: {
-        matchers: {
-            color: /(background|color)$/i,
-            date: /Date$/,
-        },
+  actions: { argTypesRegex: '^on[A-Z].*' },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
     },
-    viewport: {
-        viewports: {
-            ...INITIAL_VIEWPORTS,
-            ...customViewports,
-        },
-        defaultViewport: 'vroom',
+  },
+  viewport: {
+    viewports: {
+      ...INITIAL_VIEWPORTS,
+      ...customViewports,
     },
-    backgrounds: {
-        default: 'vroom',
-        values: [
-            {
-                name: 'light',
-                value: '#F7F7F7',
-            },
-            {
-                name: 'dark',
-                value: '#000000',
-            },
-        ],
-    },
+    defaultViewport: 'vroom',
+  },
+  backgrounds: {
+    default: 'vroom',
+    values: [
+      {
+        name: 'light',
+        value: '#F7F7F7',
+      },
+      {
+        name: 'dark',
+        value: '#000000',
+      },
+    ],
+  },
 };

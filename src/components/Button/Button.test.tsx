@@ -4,7 +4,6 @@ import { mockButtonProps } from './Button.mocks';
 
 describe('Button', () => {
   describe('The Button component', () => {
-
     function renderButton(): void {
       render(<Button {...mockButtonProps} />);
     }
@@ -16,9 +15,7 @@ describe('Button', () => {
 
     it('renders the correct text', () => {
       renderButton();
-      expect(screen.getByTestId('button')).toHaveTextContent(
-        `${mockButtonProps.children}`
-      );
+      expect(screen.getByTestId('button')).toHaveTextContent(`${mockButtonProps.children}`);
     });
 
     it('calls the onClick function when clicked', () => {
@@ -40,32 +37,22 @@ describe('Button', () => {
 
     it('has the correct class name when the type is PRIMARY', () => {
       render(<Button {...mockButtonProps} type={EButtonType.PRIMARY} />);
-      expect(screen.getByTestId('button')).toHaveClass(
-        getButtonTypeClassName(EButtonType.PRIMARY)
-      );
+      expect(screen.getByTestId('button')).toHaveClass(getButtonTypeClassName(EButtonType.PRIMARY));
     });
 
     it('has the correct class name when the type is PRIMARY_INVERTED', () => {
-      render(
-        <Button {...mockButtonProps} type={EButtonType.PRIMARY_INVERTED} />
-      );
-      expect(screen.getByTestId('button')).toHaveClass(
-        getButtonTypeClassName(EButtonType.PRIMARY_INVERTED)
-      );
+      render(<Button {...mockButtonProps} type={EButtonType.PRIMARY_INVERTED} />);
+      expect(screen.getByTestId('button')).toHaveClass(getButtonTypeClassName(EButtonType.PRIMARY_INVERTED));
     });
 
     it('has the correct class name when the type is SUCCESS', () => {
       render(<Button {...mockButtonProps} type={EButtonType.SUCCESS} />);
-      expect(screen.getByTestId('button')).toHaveClass(
-        getButtonTypeClassName(EButtonType.SUCCESS)
-      );
+      expect(screen.getByTestId('button')).toHaveClass(getButtonTypeClassName(EButtonType.SUCCESS));
     });
 
     it('has the correct class name when the type is DISABLED', () => {
       render(<Button {...mockButtonProps} type={EButtonType.DISABLED} />);
-      expect(screen.getByTestId('button')).toHaveClass(
-        getButtonTypeClassName(EButtonType.DISABLED)
-      );
+      expect(screen.getByTestId('button')).toHaveClass(getButtonTypeClassName(EButtonType.DISABLED));
     });
   });
 
@@ -77,9 +64,7 @@ describe('Button', () => {
       expect(getButtonTypeClassName(EButtonType.PRIMARY_INVERTED)).toBe(
         'h-full bg-primary border-primary  text-white px-4 hover:text-primary hover:bg-white focus:text-primaryFocus focus:border-primaryFocus'
       );
-      expect(getButtonTypeClassName(EButtonType.SUCCESS)).toBe(
-        'px-2 text-white bg-green'
-      );
+      expect(getButtonTypeClassName(EButtonType.SUCCESS)).toBe('px-2 text-white bg-green');
       expect(getButtonTypeClassName(EButtonType.DISABLED)).toBe(
         'bg-gray-300 text-gray-500 font-bold py-2 px-4 rounded h-full hover:cursor-auto'
       );
