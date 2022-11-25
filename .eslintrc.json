@@ -32,10 +32,7 @@
   },
   "rules": {
     "unused-imports/no-unused-imports": "error",
-    "no-restricted-imports": [
-      "error",
-      { "patterns": ["@components/*/*", "../*/*"] }
-    ],
+    "no-restricted-imports": ["error", { "patterns": ["@/*/*/*", "../*/*"] }],
     "semi": "error",
     "no-undef": "error",
     "@typescript-eslint/explicit-function-return-type": "error",

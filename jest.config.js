@@ -6,12 +6,7 @@ const config = {
   rootDir: './',
   moduleDirectories: ['node_modules', '<rootDir>/'],
   moduleNameMapper: {
-    '@components/(.*)$': '<rootDir>/src/components/$1',
-    '@utils/(.*)$': '<rootDir>/src/utils/$1',
-    '@features/(.*)$': '<rootDir>/src/features/$1',
-    '@data/(.*)$': '<rootDir>/src/data/$1',
-    '@context/(.*)$': '<rootDir>/src/context/$1',
-    '@styles/(.*)$': '<rootDir>/src/styles/$1',
+    '@/(.*)$': '<rootDir>/src/$1',
   },
   preset: 'ts-jest/presets/js-with-ts',
   testEnvironment: 'jsdom',

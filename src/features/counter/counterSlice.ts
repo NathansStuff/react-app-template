@@ -41,4 +41,5 @@ export function selectCount(state: RootState): number {
   return state.counter.value;
 }
 
-export default counterSlice.reducer;
+const counterReducer = counterSlice.reducer;
+export { counterReducer };

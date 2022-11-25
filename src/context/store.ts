@@ -1,15 +1,18 @@
 import logger from 'redux-logger';
 
-import { NODE_ENV } from '@data/config';
-import counterReducer from '@features/counter/counterSlice';
+import { NODE_ENV } from '@/data/config';
+import { counterReducer } from '@/features/counter';
 import {
   combineReducers,
   configureStore,
   PreloadedState,
 } from '@reduxjs/toolkit';
 
+import { displayReducer } from './display';
+
 export const rootReducer = combineReducers({
   counter: counterReducer,
+  displayReducer: displayReducer,
 });
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type

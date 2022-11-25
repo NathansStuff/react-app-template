@@ -1,4 +1,4 @@
-import { store } from '@context/store';
+import { store } from '@/context/store';
 
 import {
   counterSlice,

@@ -1,4 +1,4 @@
-import { fireEvent, reducer, screen } from '@utils/tests/testUtils';
+import { fireEvent, reducer, screen } from '@/utils/tests';
 
 import Counter from './Counter';
 

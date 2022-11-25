@@ -1,16 +1,18 @@
-import { Button } from '@components/Button';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import Vroom from './pages/Vroom';
 
 function App(): JSX.Element {
   return (
-    <div data-testid='home' className='bg-red-600'>
-      <Button
-        onClick={(): void => {
-          console.log('s');
-        }}
-      >
-        s
-      </Button>
-      hello
+    <div data-testid='home'>
+      <Router>
+        <Routes>
+          {/* <Vroom /> Unknown Journey */}
+          <Route path='/' element={<Vroom />} />
+          {/* <Vroom /> Known Journey */}
+          <Route path='/:id' element={<Vroom />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
