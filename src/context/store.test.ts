@@ -3,12 +3,12 @@ import { getMiddleware, rootReducer, setupStore } from './store';
 describe('setup store', () => {
   it('should setup the store', () => {
     const store = setupStore();
-    expect(store.getState().counter.value).toEqual(0);
+    expect(store.getState().counterReducer.value).toEqual(0);
   });
 
   it('should setup the store with preloaded state', () => {
-    const store = setupStore({ counter: { value: 3 } });
-    expect(store.getState().counter.value).toEqual(3);
+    const store = setupStore({ counterReducer: { value: 3 } });
+    expect(store.getState().counterReducer.value).toEqual(3);
   });
 
   describe('rootReducer', () => {

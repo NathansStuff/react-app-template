@@ -9,10 +9,12 @@ import {
 } from '@reduxjs/toolkit';
 
 import { displayReducer } from './display';
+import { userReducer } from './user';
 
 export const rootReducer = combineReducers({
-  counter: counterReducer,
+  counterReducer: counterReducer,
   displayReducer: displayReducer,
+  userReducer: userReducer,
 });
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type

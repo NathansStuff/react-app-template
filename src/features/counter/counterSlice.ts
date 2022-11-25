@@ -38,7 +38,7 @@ export const { increment, decrement, incrementByAmount, setValue } =
   counterSlice.actions;
 
 export function selectCount(state: RootState): number {
-  return state.counter.value;
+  return state.counterReducer.value;
 }
 
 const counterReducer = counterSlice.reducer;
