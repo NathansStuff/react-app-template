@@ -1,6 +1,7 @@
 import { RadioGroup } from '@/components/RadioGroup';
 import { selectHasChildren, setHasChildren } from '@/context/borrower';
 import { useAppDispatch, useAppSelector } from '@/context/storeHooks';
+import { NumberOfKids } from '@/UserInput/NumberOfKids';
 import { getBoolean } from '@/utils/valueFormat';
 
 export interface IHaveKidsProps {
@@ -10,7 +11,6 @@ export interface IHaveKidsProps {
 
 export function HaveKids({ baseId, showErrors }: IHaveKidsProps): JSX.Element {
   // ***** Redux *****
-  // Not using the redux hooks (eg, useAppSelector) here because we need to use the index - extra args
   const hasChildren = useAppSelector(selectHasChildren);
   const dispatch = useAppDispatch();
 
@@ -42,6 +42,7 @@ export function HaveKids({ baseId, showErrors }: IHaveKidsProps): JSX.Element {
         options={options}
         value={hasChildren}
       />
+      {hasChildren && <NumberOfKids baseId={baseId} showErrors={showErrors} />}
     </div>
   );
 }
