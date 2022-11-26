@@ -11,7 +11,6 @@ function getAllParamaters(params: URLSearchParams): {
 
 function GetParams(): void {
   const { id } = useParams();
-  console.log(id);
 
   // *****Get params from URL*****
   const urlCalled = new URLSearchParams(useLocation().search);

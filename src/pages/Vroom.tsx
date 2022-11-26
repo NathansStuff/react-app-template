@@ -2,8 +2,7 @@ import { connect, ConnectedProps } from 'react-redux';
 
 import { EDisplays } from '@/context/display';
 import { RootState } from '@/context/store';
-
-import GetParams from './GetParams';
+import GetParams from '@/utils/GetParams';
 
 type Props = ConnectedProps<typeof connector>;
 

@@ -1,23 +1,16 @@
-import { Provider } from 'react-redux';
-
-import { store } from '@/context/store';
-import { login } from '@/context/user';
-import { render, screen } from '@testing-library/react';
+import { reducer, screen } from '@/utils/tests';
 
 import { Header } from './Header';
 
 describe('Header component', () => {
-  beforeEach(() => {
-    render(
-      <Provider store={store}>
-        <Header />
-      </Provider>
-    );
-  });
+  function renderBaseComponent(): void {
+    reducer(<Header />);
+  }
 
   describe('initial render', () => {
     it('renders without errors', () => {
       // Arrange
+      renderBaseComponent();
       // Act
       // Assert
       expect(screen.getByTestId('header')).toBeInTheDocument();
@@ -25,6 +18,7 @@ describe('Header component', () => {
 
     it('renders the logo', () => {
       // Arrange
+      renderBaseComponent();
       // Act
       // Assert
       expect(screen.getByAltText('logo')).toBeInTheDocument();
@@ -32,6 +26,7 @@ describe('Header component', () => {
 
     it('renders the log in button', () => {
       // Arrange
+      renderBaseComponent();
       // Act
       // Assert
       expect(screen.getByText('Log In')).toBeInTheDocument();
@@ -41,8 +36,10 @@ describe('Header component', () => {
   describe('the log in and log out buttons', () => {
     it('should change to log out when the user is logged in', async () => {
       // Arrange
+      reducer(<Header />, {
+        preloadedState: { userReducer: { isLoggedIn: true } },
+      });
       // Act
-      await store.dispatch(login('John'));
       // Assert
       expect(screen.getByText('Log Out')).toBeInTheDocument();
     });
