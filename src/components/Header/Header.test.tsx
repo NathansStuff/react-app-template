@@ -1,4 +1,4 @@
-import { renderRedux, screen } from '@/utils/tests';
+import { renderRedux, screen } from '@/utils/testsUtils';
 
 import { Header } from './Header';
 

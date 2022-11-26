@@ -1,7 +1,6 @@
 import logger from 'redux-logger';
 
 import { NODE_ENV } from '@/data/config';
-import { counterReducer } from '@/features/counter';
 import {
   combineReducers,
   configureStore,
@@ -13,7 +12,6 @@ import { displayReducer } from './display';
 import { userReducer } from './user';
 
 export const rootReducer = combineReducers({
-  counterReducer: counterReducer,
   displayReducer: displayReducer,
   userReducer: userReducer,
   borrowerReducer: borrowerReducer,

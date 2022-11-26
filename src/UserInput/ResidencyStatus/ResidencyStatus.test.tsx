@@ -1,5 +1,5 @@
 import { checkedClass, uncheckedClass } from '@/components/RadioGroup';
-import { clickElement, renderRedux } from '@/utils/tests';
+import { clickElement, renderRedux } from '@/utils/testsUtils';
 import { screen } from '@testing-library/react';
 
 import { ResidencyStatus } from './ResidencyStatus';

@@ -1,4 +1,4 @@
-import { clickElement } from '@/utils/tests';
+import { clickElement } from '@/utils/testsUtils';
 import { render, screen } from '@testing-library/react';
 
 import {

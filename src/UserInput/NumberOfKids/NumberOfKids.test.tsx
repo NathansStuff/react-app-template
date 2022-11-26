@@ -1,5 +1,5 @@
 import { initialBorrowerState } from '@/context/borrower';
-import { inputTextOnElement, renderRedux } from '@/utils/tests';
+import { inputTextOnElement, renderRedux } from '@/utils/testsUtils';
 import { screen } from '@testing-library/react';
 
 import { NumberOfKids } from './NumberOfKids';
@@ -61,7 +61,7 @@ describe('BaseTemplate', () => {
       expect(screen.getByTestId('inputField')).toHaveValue('9');
     });
 
-    // TODO: This test never fails and I don't know how to make it actually test that the function returns early 
+    // TODO: This test never fails and I don't know how to make it actually test that the function returns early
     it('returns when equal to the existing number of children', async () => {
       // Arrange
       renderRedux(<NumberOfKids {...mockNumberOfKidsProps} />, {
