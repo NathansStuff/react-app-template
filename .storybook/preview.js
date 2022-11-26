@@ -29,7 +29,7 @@ export const parameters = {
     defaultViewport: 'vroom',
   },
   backgrounds: {
-    default: 'vroom',
+    default: 'light',
     values: [
       {
         name: 'light',

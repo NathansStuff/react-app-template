@@ -2,15 +2,17 @@ import { connect, ConnectedProps } from 'react-redux';
 
 import { EDisplays } from '@/context/display';
 import { RootState } from '@/context/store';
-import GetParams from '@/utils/GetParams';
+import { GetParams } from '@/utils/GetParams';
+
+import { BasicDetails } from './Display/BasicDetails';
 
 type Props = ConnectedProps<typeof connector>;
 
 function Vroom({ display }: Props): JSX.Element {
   GetParams();
   switch (display) {
-    case EDisplays.BASIC_DETAILS:
-      return <div>NASIC</div>;
+    case EDisplays.BASIC:
+      return <BasicDetails />;
     case EDisplays.INCOME:
     default:
       return <div>room</div>;

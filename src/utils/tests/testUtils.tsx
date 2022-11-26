@@ -3,6 +3,8 @@ import { AppStore, rootReducer, RootState } from 'src/context/store';
 
 import { configureStore, PreloadedState } from '@reduxjs/toolkit';
 import {
+  act,
+  fireEvent,
   render as rtlRender,
   RenderOptions,
   RenderResult,
@@ -19,7 +21,7 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
 // a component and renders it with the Redux store and any other options that
 // are passed in.
 
-function reducer(
+export function renderRedux(
   ui: React.ReactElement,
   {
     preloadedState = {},
@@ -40,5 +42,12 @@ interface WrapperProps {
   children: React.ReactNode;
 }
 
+export function clickElement(
+  element: Element | Node | Document | Window
+): void {
+  act(() => {
+    fireEvent.click(element);
+  });
+}
+
 export * from '@testing-library/react';
-export { reducer };

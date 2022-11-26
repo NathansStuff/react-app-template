@@ -4,7 +4,7 @@ import { displaySlice, selectDisplay, setDisplay } from './displaySlice';
 import { EDisplays } from './displayTypes';
 
 describe('DisplayReducer redux state tests', () => {
-  afterEach(() => store.dispatch(setDisplay(EDisplays.BASIC_DETAILS)));
+  afterEach(() => store.dispatch(setDisplay(EDisplays.BASIC)));
 
   describe('Reducer', () => {
     it('calling setDisplay should set the display state', async () => {
@@ -24,7 +24,7 @@ describe('DisplayReducer redux state tests', () => {
       // Act
       const display = selectDisplay(state);
       // Assert
-      expect(display).toEqual(EDisplays.BASIC_DETAILS);
+      expect(display).toEqual(EDisplays.BASIC);
     });
   });
 

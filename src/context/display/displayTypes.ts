@@ -1,4 +1,4 @@
 export enum EDisplays {
-  BASIC_DETAILS = 'BASIC_DETAILS',
+  BASIC = 'BASIC',
   INCOME = 'INCOME',
 }

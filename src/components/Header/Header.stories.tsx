@@ -1,3 +1,6 @@
+import { Provider } from 'react-redux';
+
+import { store } from '@/context/store';
 import { Page } from '@/layouts/Page';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
@@ -12,9 +15,11 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Header> = () => (
-  <Page>
-    <Header />
-  </Page>
+  <Provider store={store}>
+    <Page>
+      <Header />
+    </Page>
+  </Provider>
 );
 
 export const Base = Template.bind({});

@@ -21,7 +21,7 @@ Base.args = {
 export const InitialValue = Template.bind({});
 InitialValue.args = {
   ...mockRadioGroupProps,
-  initialValue: 0,
+  value: true,
 } as IRadioGroup;
 
 export const Errors = Template.bind({});

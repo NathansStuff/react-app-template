@@ -9,12 +9,10 @@ function getAllParamaters(params: URLSearchParams): {
   return { url, dealerName };
 }
 
-function GetParams(): void {
+export function GetParams(): void {
   const { id } = useParams();
 
   // *****Get params from URL*****
   const urlCalled = new URLSearchParams(useLocation().search);
   const { url, dealerName } = getAllParamaters(urlCalled);
 }
-
-export default GetParams;

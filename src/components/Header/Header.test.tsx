@@ -1,10 +1,10 @@
-import { reducer, screen } from '@/utils/tests';
+import { renderRedux, screen } from '@/utils/tests';
 
 import { Header } from './Header';
 
 describe('Header component', () => {
   function renderBaseComponent(): void {
-    reducer(<Header />);
+    renderRedux(<Header />);
   }
 
   describe('initial render', () => {
@@ -36,7 +36,7 @@ describe('Header component', () => {
   describe('the log in and log out buttons', () => {
     it('should change to log out when the user is logged in', async () => {
       // Arrange
-      reducer(<Header />, {
+      renderRedux(<Header />, {
         preloadedState: { userReducer: { isLoggedIn: true } },
       });
       // Act

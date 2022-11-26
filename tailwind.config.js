@@ -4,18 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // primary: '#48AAE1',
-        // primaryFocus: '#0078DC',
-        // primaryHover: '#238ade',
-        // lightGray: '#F4F4F4',
-        // midGray: '#C4C4C4',
-        // darkGray: '#555555',
-        // darkBlack: '#3A3939',
-        // green: '#60C664',
-        // errorBg: '#FFC300',
-
-        primary: '#F44BB6',
-        secondary: '#447CF9',
+        primary: '#F44BB6', // Pink
+        secondary: '#447CF9', // Blue
         secondaryDark: '#1C3177', // eg, Edit Loan Structure title
         secondaryLight: '#447cf9', // eg, Dropdown select
         error: '#fff8e0',

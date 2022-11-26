@@ -14,6 +14,7 @@ export const mockRadioGroupProps: IRadioGroup = {
       id: 'shareHouseholdExpensesNo',
     },
   ],
+  value: null,
   showErrors: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
   onChange: (value) => {},

@@ -1,13 +1,13 @@
-import { render, screen } from '@/utils/tests';
+import { renderRedux, screen } from '@/utils/tests';
 
 import { BasicDetails } from './BasicDetails';
 
 describe('BasicDetails', () => {
   beforeEach(() => {
-    render(<BasicDetails />);
+    renderRedux(<BasicDetails />);
   });
 
   it('renders without errors', () => {
-    expect(screen.getByTestId('basicDetails')).toBeInTheDocument();
+    expect(screen.getByTestId('basic')).toBeInTheDocument();
   });
 });

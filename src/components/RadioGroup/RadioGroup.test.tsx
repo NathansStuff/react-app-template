@@ -1,4 +1,5 @@
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { clickElement } from '@/utils/tests';
+import { render, screen } from '@testing-library/react';
 
 import {
   checkedClass,
@@ -8,7 +9,7 @@ import {
 } from './RadioGroup';
 import { mockRadioGroupProps } from './RadioGroup.mocks';
 
-describe('BaseTemplate', () => {
+describe('RadioGroup', () => {
   const onChange = jest.fn();
 
   function renderBaseComponent(): void {
@@ -22,14 +23,9 @@ describe('BaseTemplate', () => {
         options={mockRadioGroupProps.options}
         title={mockRadioGroupProps.title}
         showErrors={mockRadioGroupProps.showErrors}
+        value={mockRadioGroupProps.value}
       />
     );
-  }
-
-  function clickElement(element: Element | Node | Document | Window): void {
-    act(() => {
-      fireEvent.click(element);
-    });
   }
 
   afterEach(() => {
@@ -88,7 +84,7 @@ describe('BaseTemplate', () => {
         options={mockRadioGroupProps.options}
         title={mockRadioGroupProps.title}
         showErrors={mockRadioGroupProps.showErrors}
-        initialValue={0}
+        value={true}
       />
     );
     expect(screen.getAllByTestId('radioGroupOptionText')[0]).toHaveClass(
@@ -103,6 +99,7 @@ describe('BaseTemplate', () => {
         options={mockRadioGroupProps.options}
         title={mockRadioGroupProps.title}
         showErrors={true}
+        value={mockRadioGroupProps.value}
       />
     );
     expect(screen.getAllByTestId('radioGroupOptionCard')[0]).toHaveClass(

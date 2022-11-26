@@ -8,6 +8,7 @@ import {
   PreloadedState,
 } from '@reduxjs/toolkit';
 
+import { borrowerReducer } from './borrower';
 import { displayReducer } from './display';
 import { userReducer } from './user';
 
@@ -15,6 +16,7 @@ export const rootReducer = combineReducers({
   counterReducer: counterReducer,
   displayReducer: displayReducer,
   userReducer: userReducer,
+  borrowerReducer: borrowerReducer,
 });
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type

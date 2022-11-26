@@ -1,10 +1,10 @@
-import { fireEvent, reducer, screen } from '@/utils/tests';
+import { fireEvent, renderRedux, screen } from '@/utils/tests';
 
 import Counter from './Counter';
 
 describe('Counter', () => {
   beforeEach(() => {
-    reducer(<Counter />);
+    renderRedux(<Counter />);
   });
 
   it('renders without errors', () => {
