@@ -1,7 +1,7 @@
 import { store } from '@/context/store';
 
-import { setGender } from './borrowerSlice';
-import { EGender } from './borrowerSliceTypes';
+import { setAddressByIndex, setGender } from './borrowerSlice';
+import { EAddressOwnershipType, EGender } from './borrowerSliceTypes';
 
 describe('BorrowerReducer redux state tests', () => {
   describe('Reducers', () => {
@@ -12,6 +12,17 @@ describe('BorrowerReducer redux state tests', () => {
       const state = store.getState();
       // Assert
       expect(state.borrowerReducer.gender).toEqual(EGender.FEMALE);
+    });
+    it('setAddressByIndex should set the address state', async () => {
+      // Arrange
+      const mockAddress = {
+        ownershipType: EAddressOwnershipType.RENTING
+      };
+      // Act
+      store.dispatch(setAddressByIndex({ index: 0, address: mockAddress }));
+      const state = store.getState();
+      // Assert
+      expect(state.borrowerReducer.address[0]).toEqual(mockAddress);
     });
   });
 });
