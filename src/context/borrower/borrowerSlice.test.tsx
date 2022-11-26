@@ -3,6 +3,8 @@ import { store } from '@/context/store';
 import {
   setAddressByIndex,
   setGender,
+  setHasChildren,
+  setNumberOfChildren,
   setResidencyStatus,
 } from './borrowerSlice';
 import {
@@ -42,5 +44,21 @@ describe('BorrowerReducer redux state tests', () => {
         EResidencyStatus.VISA_HOLDER
       );
     });
+    it('setHasChildren should set the have kids state', async () => {
+      // Arrange
+      // Act
+      store.dispatch(setHasChildren(true));
+      const state = store.getState();
+      // Assert
+      expect(state.borrowerReducer.hasChildren).toEqual(true);
+    });
+     it('setNumberOfChildren should set the number of children state', async () => {
+       // Arrange
+       // Act
+       store.dispatch(setNumberOfChildren(2));
+       const state = store.getState();
+       // Assert
+       expect(state.borrowerReducer.numberOfChildren).toEqual(2);
+     });
   });
 });

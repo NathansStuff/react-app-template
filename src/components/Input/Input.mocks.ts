@@ -1,7 +1,7 @@
 import { IInput } from './Input';
 
 export const mockInputProps: IInput = {
-  heading: 'Hello World',
+  title: 'Hello World',
   placeholder: 'Enter your name',
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange: () => {},
@@ -10,7 +10,7 @@ export const mockInputProps: IInput = {
 };
 
 export const mockErrorInputProps: IInput = {
-  heading: 'Hello World',
+  title: 'Hello World',
   placeholder: 'Enter your name',
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange: () => {},
@@ -19,7 +19,7 @@ export const mockErrorInputProps: IInput = {
 };
 
 export const mockTextInputProps: IInput = {
-  heading: 'Hello World',
+  title: 'Hello World',
   placeholder: 'Enter your name',
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange: () => {},

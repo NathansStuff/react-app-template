@@ -50,4 +50,13 @@ export function clickElement(
   });
 }
 
+export function inputTextOnElement(
+  element: Element | Node | Document | Window,
+  newValue: string
+): void {
+  act(() => {
+    fireEvent.change(element, { target: { value: newValue } });
+  });
+}
+
 export * from '@testing-library/react';

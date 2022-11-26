@@ -1,9 +1,9 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent } from 'react';
 
 import { trimClassname } from '@/utils/styleHelper';
 
 export interface IInput {
-  heading: string;
+  title: string;
   placeholder: string;
   id: string;
   onChange: (value: string) => void;
@@ -29,7 +29,7 @@ export interface IInput {
  * @version 1.0.0
  */
 export function Input({
-  heading,
+  title,
   placeholder,
   id,
   value,
@@ -40,17 +40,14 @@ export function Input({
     return showErrors && !value;
   }
 
-  const [inputValue, setInputValue] = useState<string>(value || '');
-
   function handleChange(event: ChangeEvent<HTMLInputElement>): void {
     const { value } = event.target;
-    setInputValue(value);
     onChange(value);
   }
 
   return (
     <div data-testid='input'>
-      <h1 className='fieldHeading px-4'>{heading}</h1>
+      <h1 className='fieldHeading px-4'>{title}</h1>
       <input
         className={trimClassname(
           `shadow appearance-none border rounded-xl w-full p-2 text-textPrimary leading-tight inputButtonFocus placeholderStyle text-center ${
@@ -61,7 +58,7 @@ export function Input({
         type='text'
         data-testid='inputField'
         placeholder={placeholder}
-        value={inputValue}
+        value={value}
         onChange={handleChange}
       />
     </div>

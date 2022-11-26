@@ -17,18 +17,22 @@ interface BorrowerSlice {
   gender: EGender | null;
   address: [IAddress];
   residencyStatus: EResidencyStatus | null;
+  hasChildren: boolean | null;
+  numberOfChildren: number | null;
 }
 
 // Define the initial state using that type
-const initialState: BorrowerSlice = {
+export const initialBorrowerState: BorrowerSlice = {
   gender: null,
   address: [{ ownershipType: null }],
   residencyStatus: null,
+  hasChildren: null,
+  numberOfChildren: null,
 };
 
 export const borrowerSlice = createSlice({
   name: 'borrower',
-  initialState,
+  initialState: initialBorrowerState,
   reducers: {
     setGender: (state, action: PayloadAction<EGender>) => {
       state.gender = action.payload;
@@ -42,12 +46,20 @@ export const borrowerSlice = createSlice({
     setResidencyStatus: (state, action: PayloadAction<EResidencyStatus>) => {
       state.residencyStatus = action.payload;
     },
+    setHasChildren: (state, action: PayloadAction<boolean>) => {
+      state.hasChildren = action.payload;
+    },
+    setNumberOfChildren: (state, action: PayloadAction<number>) => {
+      state.numberOfChildren = action.payload;
+    },
   },
 });
 
 export const { setGender } = borrowerSlice.actions;
 export const { setAddressByIndex } = borrowerSlice.actions;
 export const { setResidencyStatus } = borrowerSlice.actions;
+export const { setHasChildren } = borrowerSlice.actions;
+export const { setNumberOfChildren } = borrowerSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectGender = (state: RootState): EGender | null =>
@@ -59,6 +71,10 @@ export const selectAddressByIndex = (
 export const selectResidencyStatus = (
   state: RootState
 ): EResidencyStatus | null => state.borrowerReducer.residencyStatus;
+export const selectHasChildren = (state: RootState): boolean | null =>
+  state.borrowerReducer.hasChildren;
+export const selectNumberOfChildren = (state: RootState): number | null =>
+  state.borrowerReducer.numberOfChildren;
 
 const borrowerReducer = borrowerSlice.reducer;
 export { borrowerReducer };

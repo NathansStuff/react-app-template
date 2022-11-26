@@ -15,7 +15,7 @@ describe('BaseTemplate', () => {
     render(
       <Input
         onChange={onChange}
-        heading={mockInputProps.heading}
+        title={mockInputProps.title}
         placeholder={mockInputProps.placeholder}
         showErrors={mockInputProps.showErrors}
         id={mockInputProps.id}
@@ -42,9 +42,7 @@ describe('BaseTemplate', () => {
 
   it('displays the passed value', () => {
     renderBaseComponent();
-    expect(screen.getByTestId('input')).toHaveTextContent(
-      mockInputProps.heading
-    );
+    expect(screen.getByTestId('input')).toHaveTextContent(mockInputProps.title);
   });
 
   it('calls the onChange function when value changes', () => {
