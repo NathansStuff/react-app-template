@@ -45,7 +45,7 @@ export function LivingStatus({ baseId, showErrors }: ILivingStatusProps): JSX.El
       id: `${baseId}-button-livingStatus-renter`,
     },
     {
-      label: 'Boarder / Other',
+      label: 'Boarding / Other',
       value: EAddressOwnershipType.BOARDING,
       id: `${baseId}-button-livingStatus-boarderOther`,
     },

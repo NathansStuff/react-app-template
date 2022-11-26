@@ -14,7 +14,6 @@ export function Gender({ baseId, showErrors }: IGenderProps): JSX.Element {
 
   // ***** Event Handlers *****
   function handleChange(value: string | boolean): void {
-    console.log('click');
     dispatch(setGender(value as EGender));
   }
 
@@ -23,12 +22,12 @@ export function Gender({ baseId, showErrors }: IGenderProps): JSX.Element {
     {
       label: 'Male',
       value: EGender.MALE,
-      id: `${baseId}-button-male`,
+      id: `${baseId}-button-gender-male`,
     },
     {
       label: 'Female',
       value: EGender.FEMALE,
-      id: `${baseId}-button-female`,
+      id: `${baseId}-button-gender-female`,
     },
   ];
   return (

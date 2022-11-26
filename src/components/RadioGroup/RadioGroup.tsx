@@ -85,7 +85,7 @@ export function RadioGroup({
                     as='p'
                     data-testid='radioGroupOptionText'
                     className={trimClassname(
-                      `fieldHeading centerFull text-center p-0 ${
+                      `fieldHeading centerFull text-center pb-0 px-3 ${
                         checked ? checkedClass : uncheckedClass
                       }`
                     )}

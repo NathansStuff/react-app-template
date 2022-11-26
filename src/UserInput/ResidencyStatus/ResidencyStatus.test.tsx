@@ -2,22 +2,22 @@ import { checkedClass, uncheckedClass } from '@/components/RadioGroup';
 import { clickElement, renderRedux } from '@/utils/tests';
 import { screen } from '@testing-library/react';
 
-import { Gender } from './Gender';
-import { mockGenderProps } from './Gender.mocks';
+import { ResidencyStatus } from './ResidencyStatus';
+import { mockResidencyStatusProps } from './ResidencyStatus.mocks';
 
-describe('BaseTemplate', () => {
+describe('ResidencyStatus', () => {
   beforeEach(() => {
-    renderRedux(<Gender {...mockGenderProps} />);
+    renderRedux(<ResidencyStatus {...mockResidencyStatusProps} />);
   });
 
   it('renders without errors', () => {
-    expect(screen.getByTestId('gender')).toBeInTheDocument();
+    expect(screen.getByTestId('residencyStatus')).toBeInTheDocument();
   });
 
-  it('the handleChange function sets the gender state', async () => {
+  it('the handleChange function sets the residency status', async () => {
     // Arrange
     // Act
-    const button = screen.getAllByText('Male')[0];
+    const button = screen.getAllByText('Visa')[0];
     expect(button).toHaveClass(uncheckedClass); // initial state
     clickElement(button);
     // Assert
