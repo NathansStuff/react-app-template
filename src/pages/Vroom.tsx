@@ -1,26 +1,30 @@
-import { connect, ConnectedProps } from 'react-redux';
-
-import { EDisplays } from '@/context/display';
-import { RootState } from '@/context/store';
+import { EDisplays, selectDisplay } from '@/context/display';
+import { useAppSelector } from '@/context/storeHooks';
 import { GetParams } from '@/utils/GetParams';
 
 import { BasicDetails } from './Display/BasicDetails';
+import { Income } from './Display/Income';
 
 function DisplayScreen(display: EDisplays): JSX.Element {
   switch (display) {
     case EDisplays.BASIC:
       return <BasicDetails />;
     case EDisplays.INCOME:
+      return <Income />;
     default:
       return <div>Vroom</div>;
   }
 }
 
-type Props = ConnectedProps<typeof connector>;
+function Vroom(): JSX.Element {
+  // ***** Redux *****
+  const screen = useAppSelector(selectDisplay);
 
-function Vroom({ display }: Props): JSX.Element {
+  // ***** Helper Functions *****
   GetParams();
-  const displayScreen = DisplayScreen(display as EDisplays);
+
+  // ***** Render *****
+  const displayScreen = DisplayScreen(screen as EDisplays);
   return (
     <div data-testid='' className='w-full px-4 py-2 bg-gray-100 h-screen'>
       <div className='mx-auto w-full max-w-md'>{displayScreen}</div>
@@ -28,13 +32,4 @@ function Vroom({ display }: Props): JSX.Element {
   );
 }
 
-const mapDispatchToProps = {};
-
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const mapStateToProps = (state: RootState) => ({
-  display: state.displayReducer.display,
-});
-
-const connector = connect(mapStateToProps, mapDispatchToProps);
-
-export default connector(Vroom);
+export { Vroom };

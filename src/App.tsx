@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Vroom from './pages/Vroom';
+import { Vroom } from './pages/Vroom';
 
 function App(): JSX.Element {
   return (

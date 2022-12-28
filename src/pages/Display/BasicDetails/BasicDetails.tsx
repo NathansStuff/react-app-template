@@ -11,12 +11,12 @@ function BasicDetails(): JSX.Element {
     <div data-testid='basic' className=''>
       <Header />
       <ProgressBar percent={15} current={1} />
+      <DisplayButtons />
       <DisplayHeading title='Basic Details' infoText='Basic s' />
       <Gender showErrors={false} baseId='screen-basic' />
       <LivingStatus showErrors={false} baseId='screen-basic' />
       <ResidencyStatus showErrors={false} baseId='screen-basic' />
       <HaveKids showErrors={false} baseId='screen-basic' />
-      <DisplayButtons />
     </div>
   );
 }
