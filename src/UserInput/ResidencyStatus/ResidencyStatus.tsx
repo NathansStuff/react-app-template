@@ -3,8 +3,11 @@ import {
   EResidencyStatus,
   selectResidencyStatus,
   setResidencyStatus,
+  setVisaNumber,
 } from '@/context/borrower';
 import { useAppDispatch, useAppSelector } from '@/context/storeHooks';
+
+import { VisaNumber } from '../VisaNumber';
 
 export interface IResidencyStatus {
   baseId: string;
@@ -22,6 +25,8 @@ export function ResidencyStatus({
   // ***** Event Handlers *****
   function handleChange(value: string | boolean): void {
     dispatch(setResidencyStatus(value as EResidencyStatus));
+    if (value === EResidencyStatus.VISA_HOLDER) return;
+    dispatch(setVisaNumber(null));
   }
 
   // ***** Render *****
@@ -43,14 +48,19 @@ export function ResidencyStatus({
     },
   ];
   return (
-    <div data-testid='residencyStatus'>
-      <RadioGroup
-        title='residency status'
-        showErrors={showErrors}
-        onChange={handleChange}
-        options={options}
-        value={residencyStatus}
-      />
-    </div>
+    <>
+      <div data-testid='residencyStatus'>
+        <RadioGroup
+          title='residency status'
+          showErrors={showErrors}
+          onChange={handleChange}
+          options={options}
+          value={residencyStatus}
+        />
+      </div>
+      {residencyStatus === EResidencyStatus.VISA_HOLDER && (
+        <VisaNumber showErrors={showErrors} baseId={baseId} />
+      )}
+    </>
   );
 }

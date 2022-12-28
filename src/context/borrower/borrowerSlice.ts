@@ -17,6 +17,7 @@ interface BorrowerSlice {
   gender: EGender | null;
   address: [IAddress];
   residencyStatus: EResidencyStatus | null;
+  visaNumber: number | null;
   hasChildren: boolean | null;
   numberOfChildren: number | null;
 }
@@ -26,6 +27,7 @@ export const initialBorrowerState: BorrowerSlice = {
   gender: null,
   address: [{ ownershipType: null }],
   residencyStatus: null,
+  visaNumber: null,
   hasChildren: null,
   numberOfChildren: null,
 };
@@ -46,6 +48,9 @@ export const borrowerSlice = createSlice({
     setResidencyStatus: (state, action: PayloadAction<EResidencyStatus>) => {
       state.residencyStatus = action.payload;
     },
+    setVisaNumber: (state, action: PayloadAction<number | null>) => {
+      state.visaNumber = action.payload;
+    },
     setHasChildren: (state, action: PayloadAction<boolean>) => {
       state.hasChildren = action.payload;
     },
@@ -58,6 +63,7 @@ export const borrowerSlice = createSlice({
 export const { setGender } = borrowerSlice.actions;
 export const { setAddressByIndex } = borrowerSlice.actions;
 export const { setResidencyStatus } = borrowerSlice.actions;
+export const { setVisaNumber } = borrowerSlice.actions;
 export const { setHasChildren } = borrowerSlice.actions;
 export const { setNumberOfChildren } = borrowerSlice.actions;
 
@@ -71,6 +77,8 @@ export const selectAddressByIndex = (
 export const selectResidencyStatus = (
   state: RootState
 ): EResidencyStatus | null => state.borrowerReducer.residencyStatus;
+export const selectVisaNumber = (state: RootState): number | null =>
+  state.borrowerReducer.visaNumber;
 export const selectHasChildren = (state: RootState): boolean | null =>
   state.borrowerReducer.hasChildren;
 export const selectNumberOfChildren = (state: RootState): number | null =>

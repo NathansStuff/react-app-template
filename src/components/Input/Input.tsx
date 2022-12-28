@@ -51,7 +51,7 @@ export function Input({
         <h1 className='fieldHeading'>{title}</h1>
         <input
           className={trimClassname(
-            `hover:shadow appearance-none border rounded-xl mx-auto w-full max-w-md p-2 text-textPrimary leading-tight inputButtonFocus placeholderStyle text-center ${
+            `hover:shadow appearance-none border rounded-lg mx-auto w-full max-w-md p-2 text-textPrimary leading-tight inputButtonFocus placeholderStyle text-center ${
               haveErrors() ? errorClass : ''
             }`
           )}

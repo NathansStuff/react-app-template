@@ -5,6 +5,7 @@ import { ProgressBar } from '@/components/ProgressBar';
 import { Gender, LivingStatus } from '@/UserInput';
 import { NumberOfKids } from '@/UserInput/NumberOfKids';
 import { ResidencyStatus } from '@/UserInput/ResidencyStatus';
+import { VisaNumber } from '@/UserInput/VisaNumber';
 
 function BasicDetails(): JSX.Element {
   return (
@@ -17,6 +18,7 @@ function BasicDetails(): JSX.Element {
       <ResidencyStatus showErrors={false} baseId='screen-basic' />
       <NumberOfKids showErrors={false} baseId='screen-basic' />
       <DisplayButtons />
+      <VisaNumber showErrors={false} baseId='screen-basic' />
     </div>
   );
 }
