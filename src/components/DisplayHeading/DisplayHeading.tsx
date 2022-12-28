@@ -8,7 +8,7 @@ interface IDisplayHeading {
 }
 
 function DisplayHeading({ title, infoText }: IDisplayHeading): JSX.Element {
-  const [showInfo, setShowInfo] = useState(false);
+  const [showInfo, setShowInfo] = useState<boolean>(false);
 
   function handleMouseLeave(): void {
     setShowInfo(false);
@@ -32,7 +32,7 @@ function DisplayHeading({ title, infoText }: IDisplayHeading): JSX.Element {
       <div
         className={`${
           showInfo ? 'absolute' : 'hidden'
-        } bg-secondary rounded-lg px-4 py-2 right-7 -top-0`}
+        } bg-secondary rounded-lg px-4 py-2 right-10 top-1`}
       >
         <div className='absolute  border-solid border-l-secondary border-l-8 border-y-transparent border-y-8 border-r-0 -right-2'></div>
         <p className='text-white'>{infoText}</p>
