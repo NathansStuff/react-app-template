@@ -46,21 +46,23 @@ export function Input({
   }
 
   return (
-    <div data-testid='input'>
-      <h1 className='fieldHeading px-4'>{title}</h1>
-      <input
-        className={trimClassname(
-          `shadow appearance-none border rounded-xl w-full p-2 text-textPrimary leading-tight inputButtonFocus placeholderStyle text-center ${
-            haveErrors() ? errorClass : ''
-          }`
-        )}
-        id={id}
-        type='text'
-        data-testid='inputField'
-        placeholder={placeholder}
-        value={value}
-        onChange={handleChange}
-      />
+    <div data-testid='input' className='w-full px-4 py-2'>
+      <div className='mx-auto w-full max-w-md'>
+        <h1 className='fieldHeading'>{title}</h1>
+        <input
+          className={trimClassname(
+            `shadow appearance-none border rounded-xl mx-auto w-full max-w-md p-2 text-textPrimary leading-tight inputButtonFocus placeholderStyle text-center ${
+              haveErrors() ? errorClass : ''
+            }`
+          )}
+          id={id}
+          type='text'
+          data-testid='inputField'
+          placeholder={placeholder}
+          value={value}
+          onChange={handleChange}
+        />
+      </div>
     </div>
   );
 }

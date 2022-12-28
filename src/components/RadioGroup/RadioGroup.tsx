@@ -49,7 +49,7 @@ export function RadioGroup({
   }
 
   return (
-    <div data-testid='radioGroup' className='w-full px-4 py-16'>
+    <div data-testid='radioGroup' className='w-full px-4 py-2'>
       <div className='mx-auto w-full max-w-md'>
         <HUIRadioGroup
           value={selected}

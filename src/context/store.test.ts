@@ -1,15 +1,15 @@
-import { getMiddleware, rootReducer, setupStore } from './store';
+import { getMiddleware, rootReducer } from './store';
 
 describe('setup store', () => {
-  it('should setup the store', () => {
-    const store = setupStore();
-    expect(store.getState().counterReducer.value).toEqual(0);
-  });
+  // it('should setup the store', () => {
+  //   const store = setupStore();
+  //   expect(store.getState().counterReducer.value).toEqual(0);
+  // });
 
-  it('should setup the store with preloaded state', () => {
-    const store = setupStore({ counterReducer: { value: 3 } });
-    expect(store.getState().counterReducer.value).toEqual(3);
-  });
+  // it('should setup the store with preloaded state', () => {
+  //   const store = setupStore({ counterReducer: { value: 3 } });
+  //   expect(store.getState().counterReducer.value).toEqual(3);
+  // });
 
   describe('rootReducer', () => {
     // Note: This is a dumb test, if you have a more complex test, you should remove this

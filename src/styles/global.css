@@ -20,7 +20,11 @@
   }
 
   .centerFull {
-    @apply flex justify-center items-center w-full 
+    @apply flex justify-center items-center w-full
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center
   }
 }
 

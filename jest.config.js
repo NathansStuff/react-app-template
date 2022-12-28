@@ -1,7 +1,7 @@
 const config = {
   verbose: true,
   // Adds what's in this file to the top of every file in the test suite
-  setupFilesAfterEnv: ['./src/utils/tests/setupTests.ts'],
+  setupFilesAfterEnv: ['./src/utils/testsUtils/setupTests.ts'],
   collectCoverage: true,
   rootDir: './',
   moduleDirectories: ['node_modules', '<rootDir>/'],

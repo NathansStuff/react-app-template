@@ -32,7 +32,7 @@ export function NumberOfKids({
   return (
     <div data-testid='numberOfKids'>
       <Input
-        title='gender'
+        title='Number of Kids'
         placeholder='The number of children living at home with you'
         showErrors={showErrors}
         onChange={handleChange}

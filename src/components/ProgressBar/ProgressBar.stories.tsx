@@ -1,26 +1,23 @@
-import { Provider } from 'react-redux';
-
-import { Page } from '@/components/Page';
-import { store } from '@/context/store';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Header } from './Header';
+import { IProgressBar, ProgressBar } from './ProgressBar';
+import { mockProgressBarProps } from './ProgressBar.mocks';
 
 export default {
-  title: 'components/Header',
-  component: Header,
+  title: 'layouts/ProgressBar',
+  component: ProgressBar,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
-} as ComponentMeta<typeof Header>;
+} as ComponentMeta<typeof ProgressBar>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Header> = () => (
-  <Provider store={store}>
-    <Page>
-      <Header />
-    </Page>
-  </Provider>
+const Template: ComponentStory<typeof ProgressBar> = (args) => (
+  <ProgressBar {...args} />
 );
 
 export const Base = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
+
+Base.args = {
+  ...mockProgressBarProps,
+} as IProgressBar;

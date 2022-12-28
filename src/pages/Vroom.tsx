@@ -15,7 +15,7 @@ function Vroom({ display }: Props): JSX.Element {
       return <BasicDetails />;
     case EDisplays.INCOME:
     default:
-      return <div>room</div>;
+      return <div>Vroom</div>;
   }
 }
 
