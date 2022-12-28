@@ -6,10 +6,7 @@ import { GetParams } from '@/utils/GetParams';
 
 import { BasicDetails } from './Display/BasicDetails';
 
-type Props = ConnectedProps<typeof connector>;
-
-function Vroom({ display }: Props): JSX.Element {
-  GetParams();
+function DisplayScreen(display: EDisplays): JSX.Element {
   switch (display) {
     case EDisplays.BASIC:
       return <BasicDetails />;
@@ -17,6 +14,18 @@ function Vroom({ display }: Props): JSX.Element {
     default:
       return <div>Vroom</div>;
   }
+}
+
+type Props = ConnectedProps<typeof connector>;
+
+function Vroom({ display }: Props): JSX.Element {
+  GetParams();
+  const displayScreen = DisplayScreen(display as EDisplays);
+  return (
+    <div data-testid='' className='w-full px-4 py-2 bg-gray-100 h-screen'>
+      <div className='mx-auto w-full max-w-md'>{displayScreen}</div>
+    </div>
+  );
 }
 
 const mapDispatchToProps = {};

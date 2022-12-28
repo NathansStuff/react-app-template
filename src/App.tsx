@@ -8,9 +8,9 @@ function App(): JSX.Element {
       <Router>
         <Routes>
           {/* <Vroom /> Unknown Journey */}
-          <Route path='/' element={<Vroom />} />
+          <Route path='/iframe/' element={<Vroom />} />
           {/* <Vroom /> Known Journey */}
-          <Route path='/:id' element={<Vroom />} />
+          <Route path='/iframe/:id' element={<Vroom />} />
         </Routes>
       </Router>
     </div>

@@ -49,59 +49,60 @@ export function RadioGroup({
   }
 
   return (
-    <div data-testid='radioGroup' className='w-full px-4 py-2'>
-      <div className='mx-auto w-full max-w-md'>
-        <HUIRadioGroup
-          value={selected}
-          onChange={handleChange}
-          className='w-full'
+    <div data-testid='radioGroup' className='py-2'>
+      <HUIRadioGroup
+        value={selected}
+        onChange={handleChange}
+        className='w-full'
+      >
+        {/* Title */}
+        <HUIRadioGroup.Label className='fieldHeading' as='p'>
+          {title}
+        </HUIRadioGroup.Label>
+        <HUIRadioGroup.Label className='sr-only'>{title}</HUIRadioGroup.Label>
+        <div
+          data-testid='radioGroupOptionDiv'
+          className='flex space-x-2 w-full'
         >
-          {/* Title */}
-          <HUIRadioGroup.Label className='fieldHeading' as='p'>
-            {title}
-          </HUIRadioGroup.Label>
-          <HUIRadioGroup.Label className='sr-only'>{title}</HUIRadioGroup.Label>
-          <div data-testid='radioGroupOptionDiv' className='flex space-x-2 w-full'>
-            {componentOptions.map((componentOption) => (
-              // Outside Card
-              <HUIRadioGroup.Option
-                key={componentOption}
-                data-googleid={
-                  options[componentOptions.indexOf(componentOption)].id
-                }
-                value={componentOption}
-                data-testid='radioGroupOptionCard'
-                className={({ active, checked }): string =>
-                  trimClassname(`${active ? 'inputButtonFocus' : ''}
+          {componentOptions.map((componentOption) => (
+            // Outside Card
+            <HUIRadioGroup.Option
+              key={componentOption}
+              data-googleid={
+                options[componentOptions.indexOf(componentOption)].id
+              }
+              value={componentOption}
+              data-testid='radioGroupOptionCard'
+              className={({ active, checked }): string =>
+                trimClassname(`${active ? 'inputButtonFocus' : ''}
                   ${checked ? 'bg-secondary text-white' : ''} ${
-                    haveErrors() ? errorClass : 'bg-white'
-                  }
-                    relative flex cursor-pointer rounded-lg p-2 hover:shadow-md w-full border transition ease-in-out hover:scale-110 duration-300 `)
+                  haveErrors() ? errorClass : 'bg-white'
                 }
-              >
-                {/* Inner Card */}
-                {({ checked }): JSX.Element => (
-                  <HUIRadioGroup.Label
-                    as='p'
-                    data-testid='radioGroupOptionText'
-                    className={trimClassname(
-                      `fieldHeading centerFull text-center pb-0 px-3 ${
-                        checked ? checkedClass : uncheckedClass
-                      }`
-                    )}
-                  >
-                    {
-                      options.find(
-                        (option) => option.value.toString() === componentOption
-                      )?.label
-                    }
-                  </HUIRadioGroup.Label>
-                )}
-              </HUIRadioGroup.Option>
-            ))}
-          </div>
-        </HUIRadioGroup>
-      </div>
+                    relative flex cursor-pointer rounded-lg p-2 hover:shadow-md w-full border transition ease-in-out hover:scale-110 duration-300 `)
+              }
+            >
+              {/* Inner Card */}
+              {({ checked }): JSX.Element => (
+                <HUIRadioGroup.Label
+                  as='p'
+                  data-testid='radioGroupOptionText'
+                  className={trimClassname(
+                    `fieldHeading centerFull text-center pb-0 px-3 ${
+                      checked ? checkedClass : uncheckedClass
+                    }`
+                  )}
+                >
+                  {
+                    options.find(
+                      (option) => option.value.toString() === componentOption
+                    )?.label
+                  }
+                </HUIRadioGroup.Label>
+              )}
+            </HUIRadioGroup.Option>
+          ))}
+        </div>
+      </HUIRadioGroup>
     </div>
   );
 }

@@ -54,7 +54,7 @@ export const borrowerSlice = createSlice({
     setHasChildren: (state, action: PayloadAction<boolean>) => {
       state.hasChildren = action.payload;
     },
-    setNumberOfChildren: (state, action: PayloadAction<number>) => {
+    setNumberOfChildren: (state, action: PayloadAction<number | null>) => {
       state.numberOfChildren = action.payload;
     },
   },

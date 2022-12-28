@@ -1,5 +1,9 @@
 import { RadioGroup } from '@/components/RadioGroup';
-import { selectHasChildren, setHasChildren } from '@/context/borrower';
+import {
+  selectHasChildren,
+  setHasChildren,
+  setNumberOfChildren,
+} from '@/context/borrower';
 import { useAppDispatch, useAppSelector } from '@/context/storeHooks';
 import { NumberOfKids } from '@/UserInput/NumberOfKids';
 import { getBoolean } from '@/utils/valueFormat';
@@ -18,6 +22,7 @@ export function HaveKids({ baseId, showErrors }: IHaveKidsProps): JSX.Element {
   function handleChange(value: string | boolean): void {
     const booleanValue = getBoolean(value);
     dispatch(setHasChildren(booleanValue));
+    if (!booleanValue) dispatch(setNumberOfChildren(null));
   }
 
   // ***** Render *****
