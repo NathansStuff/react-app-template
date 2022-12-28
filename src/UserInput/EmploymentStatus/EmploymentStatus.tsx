@@ -1,10 +1,16 @@
+import { useSelector } from 'react-redux';
+
 import { RadioGroup } from '@/components/RadioGroup';
 import {
   EEmploymentStatus,
-  selectEmploymentStatus,
-  setEmploymentStatus,
+  IEmploymentByIndex,
+  selectEmploymentStatusByIndex,
+  setEmploymentStatusByIndex,
 } from '@/context/borrower';
-import { useAppDispatch, useAppSelector } from '@/context/storeHooks';
+import { RootState } from '@/context/store';
+import { useAppDispatch } from '@/context/storeHooks';
+
+import { CasualLength } from '../CasualLength';
 
 export interface IEmploymentStatus {
   baseId: string;
@@ -16,12 +22,22 @@ export function EmploymentStatus({
   showErrors,
 }: IEmploymentStatus): JSX.Element {
   // ***** Redux *****
-  const employmentStatus = useAppSelector(selectEmploymentStatus);
+  const employment = useSelector((state: RootState) =>
+    selectEmploymentStatusByIndex(state, 0)
+  );
+  const employmentStatus = employment?.status;
   const dispatch = useAppDispatch();
 
   // ***** Event Handlers *****
   function handleChange(value: string | boolean): void {
-    dispatch(setEmploymentStatus(value as EEmploymentStatus));
+    const dispatchObjext: IEmploymentByIndex = {
+      index: 0,
+      employment: {
+        ...employment,
+        status: value as EEmploymentStatus,
+      },
+    };
+    dispatch(setEmploymentStatusByIndex(dispatchObjext));
   }
 
   // ***** Render *****
@@ -43,14 +59,19 @@ export function EmploymentStatus({
     },
   ];
   return (
-    <div data-testid='EmploymentStatus'>
-      <RadioGroup
-        title='employment status'
-        showErrors={showErrors}
-        onChange={handleChange}
-        options={options}
-        value={employmentStatus}
-      />
-    </div>
+    <>
+      <div data-testid='EmploymentStatus'>
+        <RadioGroup
+          title='employment status'
+          showErrors={showErrors}
+          onChange={handleChange}
+          options={options}
+          value={employmentStatus}
+        />
+      </div>
+      {employmentStatus === EEmploymentStatus.CASUAL && (
+        <CasualLength baseId={baseId} showErrors={showErrors} />
+      )}
+    </>
   );
 }

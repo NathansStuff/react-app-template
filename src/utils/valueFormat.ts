@@ -19,7 +19,8 @@ export function getNumber(value: string | boolean, maxValue?: number): number {
   //
   let intValue = 0;
   if (typeof value === 'string') {
-    intValue = parseInt(value, 10);
+    const protectedValue = value.replace(',', '');
+    intValue = parseInt(protectedValue, 10);
   }
   if (isNaN(intValue)) {
     intValue = 0;

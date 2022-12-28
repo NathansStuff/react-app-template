@@ -30,6 +30,17 @@ export enum EOtherIncomeSource {
   OTHER = 'OTHER',
 }
 
+interface IEmployment {
+  status: EEmploymentStatus | null;
+  years: number | null;
+  months: number | null;
+}
+
+export interface IEmploymentByIndex {
+  index: number;
+  employment: IEmployment;
+}
+
 // Define a type for the slice state
 interface BorrowerSlice {
   gender: EGender | null;
@@ -38,11 +49,11 @@ interface BorrowerSlice {
   visaNumber: number | null;
   hasChildren: boolean | null;
   numberOfChildren: number | null;
-  employmentStatus: EEmploymentStatus | null;
   paidFrequency: EFrequency | null;
   paidAmount: number | null;
   otherIncome: number | null;
   otherIncomeSource: EOtherIncomeSource | null;
+  employments: IEmployment[];
 }
 
 // Define the initial state using that type
@@ -53,11 +64,11 @@ export const initialBorrowerState: BorrowerSlice = {
   visaNumber: null,
   hasChildren: null,
   numberOfChildren: null,
-  employmentStatus: null,
   paidFrequency: null,
   paidAmount: null,
   otherIncome: null,
   otherIncomeSource: null,
+  employments: [],
 };
 
 export const borrowerSlice = createSlice({
@@ -85,12 +96,6 @@ export const borrowerSlice = createSlice({
     setNumberOfChildren: (state, action: PayloadAction<number | null>) => {
       state.numberOfChildren = action.payload;
     },
-    setEmploymentStatus: (
-      state,
-      action: PayloadAction<EEmploymentStatus | null>
-    ) => {
-      state.employmentStatus = action.payload;
-    },
     setPaidFrequency: (state, action: PayloadAction<EFrequency | null>) => {
       state.paidFrequency = action.payload;
     },
@@ -106,6 +111,12 @@ export const borrowerSlice = createSlice({
     ) => {
       state.otherIncomeSource = action.payload;
     },
+    setEmploymentStatusByIndex: (
+      state,
+      action: PayloadAction<IEmploymentByIndex>
+    ) => {
+      state.employments[action.payload.index] = action.payload.employment;
+    },
   },
 });
 
@@ -115,11 +126,11 @@ export const { setResidencyStatus } = borrowerSlice.actions;
 export const { setVisaNumber } = borrowerSlice.actions;
 export const { setHasChildren } = borrowerSlice.actions;
 export const { setNumberOfChildren } = borrowerSlice.actions;
-export const { setEmploymentStatus } = borrowerSlice.actions;
 export const { setPaidFrequency } = borrowerSlice.actions;
 export const { setPaidAmount } = borrowerSlice.actions;
 export const { setOtherIncome } = borrowerSlice.actions;
 export const { setOtherIncomeSource } = borrowerSlice.actions;
+export const { setEmploymentStatusByIndex } = borrowerSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectGender = (state: RootState): EGender | null =>
@@ -137,9 +148,6 @@ export const selectHasChildren = (state: RootState): boolean | null =>
   state.borrowerReducer.hasChildren;
 export const selectNumberOfChildren = (state: RootState): number | null =>
   state.borrowerReducer.numberOfChildren;
-export const selectEmploymentStatus = (
-  state: RootState
-): EEmploymentStatus | null => state.borrowerReducer.employmentStatus;
 export const selectPaidFrequency = (state: RootState): EFrequency | null =>
   state.borrowerReducer.paidFrequency;
 export const selectPaidAmount = (state: RootState): number | null =>
@@ -149,6 +157,10 @@ export const selectOtherIncome = (state: RootState): number | null =>
 export const selectOtherIncomeSource = (
   state: RootState
 ): EOtherIncomeSource | null => state.borrowerReducer.otherIncomeSource;
+export const selectEmploymentStatusByIndex = (
+  state: RootState,
+  index: number
+): IEmployment => state.borrowerReducer.employments[index];
 
 const borrowerReducer = borrowerSlice.reducer;
 export { borrowerReducer };
