@@ -1,3 +1,4 @@
+import { DisplayButtons } from '@/components/DisplayButtons';
 import { DisplayHeading } from '@/components/DisplayHeading';
 import { Header } from '@/components/Header';
 import { ProgressBar } from '@/components/ProgressBar';
@@ -15,6 +16,7 @@ function BasicDetails(): JSX.Element {
       <LivingStatus showErrors={false} baseId='screen-basic' />
       <ResidencyStatus showErrors={false} baseId='screen-basic' />
       <NumberOfKids showErrors={false} baseId='screen-basic' />
+      <DisplayButtons />
     </div>
   );
 }

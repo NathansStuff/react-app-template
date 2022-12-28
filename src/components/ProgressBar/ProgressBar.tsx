@@ -4,7 +4,7 @@ export interface IProgressBar {
   current: number;
 }
 
-const First = ['LOAN DETAILS', 'YOUR DETAILS', 'DRIVERS LICENSE', 'SUMMARY'];
+const First = ['LOAN DETAILS', 'YOUR DETAILS', 'LICENSE', 'SUMMARY'];
 const Second = ['LOAN DETAILS', 'YOUR DETAILS', 'DRIVERS LICENSE', 'SUMMARY'];
 
 interface IHeading {
