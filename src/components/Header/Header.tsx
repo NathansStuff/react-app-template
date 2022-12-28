@@ -11,13 +11,13 @@ export function Header(): JSX.Element {
       <div className='h-full flex justify-center items-center pt-2'>
         <img
           height={90}
-          width={130}
+          width={100}
           src='https://dev2-vroom.driveiq.com.au/assets/logos/Vroom_logo_with_TM.svg'
           alt='logo'
         />
       </div>
       <div className='pt-1'>
-        <p className='font-bold text text-secondary'>
+        <p className='font-bold text-sm text-secondary'>
           Get instant pre-approval <br />
           No impact on credit score
         </p>

@@ -26,7 +26,7 @@ function Vroom(): JSX.Element {
   // ***** Render *****
   const displayScreen = DisplayScreen(screen as EDisplays);
   return (
-    <div data-testid='' className='w-full px-4 py-2 bg-gray-100 h-screen'>
+    <div data-testid='' className='w-full px-4 bg-gray-100 min-h-screen h-fit'>
       <div className='mx-auto w-full max-w-md'>{displayScreen}</div>
     </div>
   );

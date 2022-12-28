@@ -18,7 +18,7 @@ function DisplayHeading({ title, infoText }: IDisplayHeading): JSX.Element {
     setShowInfo(true);
   }
   return (
-    <div className='px-4 py-2 max-w-md flex items-center justify-between relative'>
+    <div className='px-4 pt-2 max-w-md flex items-center justify-between relative'>
       <div />
       <h3 className='text-xl font-bold uppercase'>{title}</h3>
       <InformationCircleIcon
