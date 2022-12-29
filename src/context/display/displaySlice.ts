@@ -12,7 +12,7 @@ interface CounterState {
 
 // Define the initial state using that type
 const initialState: CounterState = {
-  display: EDisplays.INCOME,
+  display: EDisplays.EXPENSE,
 };
 
 export const displaySlice = createSlice({

@@ -41,10 +41,20 @@ export interface IEmploymentByIndex {
   employment: IEmployment;
 }
 
+export interface IExpenses {
+  expensesShared: boolean | null;
+  billsPaidFrequency: EFrequency | null;
+  general: number | null;
+  transportVehicle: number | null;
+  education: number | null;
+  otherLoans: number | null;
+  mortgageRent: number | null;
+}
+
 // Define a type for the slice state
 interface BorrowerSlice {
   gender: EGender | null;
-  address: [IAddress];
+  address: IAddress[];
   residencyStatus: EResidencyStatus | null;
   visaNumber: number | null;
   hasChildren: boolean | null;
@@ -54,6 +64,7 @@ interface BorrowerSlice {
   otherIncome: number | null;
   otherIncomeSource: EOtherIncomeSource | null;
   employments: IEmployment[];
+  expenses: IExpenses;
 }
 
 // Define the initial state using that type
@@ -69,6 +80,15 @@ export const initialBorrowerState: BorrowerSlice = {
   otherIncome: null,
   otherIncomeSource: null,
   employments: [],
+  expenses: {
+    expensesShared: null,
+    billsPaidFrequency: null,
+    general: null,
+    transportVehicle: null,
+    education: null,
+    otherLoans: null,
+    mortgageRent: null,
+  },
 };
 
 export const borrowerSlice = createSlice({
@@ -117,6 +137,34 @@ export const borrowerSlice = createSlice({
     ) => {
       state.employments[action.payload.index] = action.payload.employment;
     },
+    // Expenses
+    setExpenses: (state, action: PayloadAction<IExpenses>) => {
+      state.expenses = action.payload;
+    },
+    setExpensesShared: (state, action: PayloadAction<boolean | null>) => {
+      state.expenses.expensesShared = action.payload;
+    },
+    setBillsPaidFrequency: (
+      state,
+      action: PayloadAction<EFrequency | null>
+    ) => {
+      state.expenses.billsPaidFrequency = action.payload;
+    },
+    setGeneral: (state, action: PayloadAction<number | null>) => {
+      state.expenses.general = action.payload;
+    },
+    setTransportVehicle: (state, action: PayloadAction<number | null>) => {
+      state.expenses.transportVehicle = action.payload;
+    },
+    setEducation: (state, action: PayloadAction<number | null>) => {
+      state.expenses.education = action.payload;
+    },
+    setOtherLoans: (state, action: PayloadAction<number | null>) => {
+      state.expenses.otherLoans = action.payload;
+    },
+    setMortgageRent: (state, action: PayloadAction<number | null>) => {
+      state.expenses.mortgageRent = action.payload;
+    },
   },
 });
 
@@ -131,6 +179,15 @@ export const { setPaidAmount } = borrowerSlice.actions;
 export const { setOtherIncome } = borrowerSlice.actions;
 export const { setOtherIncomeSource } = borrowerSlice.actions;
 export const { setEmploymentStatusByIndex } = borrowerSlice.actions;
+// Expenses
+export const { setExpenses } = borrowerSlice.actions;
+export const { setExpensesShared } = borrowerSlice.actions;
+export const { setBillsPaidFrequency } = borrowerSlice.actions;
+export const { setGeneral } = borrowerSlice.actions;
+export const { setTransportVehicle } = borrowerSlice.actions;
+export const { setEducation } = borrowerSlice.actions;
+export const { setOtherLoans } = borrowerSlice.actions;
+export const { setMortgageRent } = borrowerSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectGender = (state: RootState): EGender | null =>
@@ -161,6 +218,25 @@ export const selectEmploymentStatusByIndex = (
   state: RootState,
   index: number
 ): IEmployment => state.borrowerReducer.employments[index];
+export const selectExpenses = (state: RootState): IExpenses =>
+
+  // Expenses
+  state.borrowerReducer.expenses;
+export const selectExpensesShared = (state: RootState): boolean | null =>
+  state.borrowerReducer.expenses.expensesShared;
+export const selectBillsPaidFrequency = (state: RootState): EFrequency | null =>
+  state.borrowerReducer.expenses.billsPaidFrequency;
+export const selectGeneral = (state: RootState): number | null =>
+  state.borrowerReducer.expenses.general;
+export const selectTransportVehicle = (state: RootState): number | null =>
+  state.borrowerReducer.expenses.transportVehicle;
+export const selectEducation = (state: RootState): number | null =>
+  state.borrowerReducer.expenses.education;
+export const selectOtherLoans = (state: RootState): number | null =>
+  state.borrowerReducer.expenses.otherLoans;
+export const selectMortgageRent = (state: RootState): number | null =>
+  state.borrowerReducer.expenses.mortgageRent;
+
 
 const borrowerReducer = borrowerSlice.reducer;
 export { borrowerReducer };

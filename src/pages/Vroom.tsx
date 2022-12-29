@@ -3,6 +3,7 @@ import { useAppSelector } from '@/context/storeHooks';
 import { GetParams } from '@/utils/GetParams';
 
 import { BasicDetails } from './Display/BasicDetails';
+import { Expense } from './Display/Expense';
 import { Income } from './Display/Income';
 
 function DisplayScreen(display: EDisplays): JSX.Element {
@@ -11,6 +12,8 @@ function DisplayScreen(display: EDisplays): JSX.Element {
       return <BasicDetails />;
     case EDisplays.INCOME:
       return <Income />;
+    case EDisplays.EXPENSE:
+      return <Expense />;
     default:
       return <div>Vroom</div>;
   }
