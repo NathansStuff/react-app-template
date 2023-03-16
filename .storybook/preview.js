@@ -28,16 +28,20 @@ export const parameters = {
     },
     defaultViewport: 'vroom',
   },
-  backgrounds: {
-    default: 'light',
-    values: [
+  themes: {
+    clearable: false,
+    list: [
       {
-        name: 'light',
-        value: '#F7F7F7',
+        name: 'Light',
+        class: [],
+        color: '#ffffff',
+        default: true,
       },
       {
-        name: 'dark',
-        value: '#000000',
+        name: 'Dark',
+        // The class dark will be added to the body tag
+        class: ['dark'],
+        color: '#000000',
       },
     ],
   },
